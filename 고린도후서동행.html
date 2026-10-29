@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>고린도후서, 읽기 전에 — 순천서남교회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F3EA;
+    --panel:#FFFFFF;
+    --panel-line:#E2DBC8;
+    --ink:#2B2A4A;
+    --ink-soft:#4E4C73;
+    --ink-faint:#8987A6;
+    --gold:#D9953A;
+    --gold-deep:#9A6420;
+    --gold-tint:#FBEBD2;
+    --indigo:#2E7D80;
+    --indigo-deep:#1D5A5D;
+    --indigo-tint:#DFF0F0;
+    --coral:#C8607A;
+    --coral-deep:#8F3A52;
+    --coral-tint:#F8E1E8;
+    --shadow: 0 2px 4px rgba(43,42,74,0.07), 0 14px 32px -16px rgba(43,42,74,0.24);
+  }
+
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html{ color-scheme: light; }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    line-height:1.8;
+    font-size:19px;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+  }
+  .wrap{ max-width:640px; margin:0 auto; padding:0 18px 90px; }
+
+  h1,h2,h3{ font-family:'Noto Serif KR','Batang',serif; font-weight:800; letter-spacing:-0.01em; text-wrap:balance; }
+
+  /* ---------- Hero banner ---------- */
+  header.hero{
+    margin:20px 0 28px; border-radius:22px; overflow:hidden; position:relative;
+    background:linear-gradient(150deg, var(--indigo-deep) 0%, var(--coral) 100%);
+    box-shadow:var(--shadow); padding:40px 26px 34px; text-align:center; color:#FFF8EE;
+  }
+  header.hero::after{
+    content:''; position:absolute; left:0; right:0; bottom:0; height:46%;
+    background:radial-gradient(circle at 50% 120%, rgba(255,214,158,0.55), transparent 60%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    position:relative; display:inline-block; font-size:15px; font-weight:700; letter-spacing:0.03em;
+    color:#FFF3DC; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.35);
+    border-radius:999px; padding:8px 16px; margin-bottom:22px;
+  }
+  h1.title{ position:relative; font-size:42px; line-height:1.28; margin:0 0 16px; color:#FFFDF6; }
+  .subtitle{ position:relative; font-size:19px; color:#E6F4F2; max-width:26em; margin:0 auto; font-weight:500; line-height:1.7; }
+  .hero-verse{
+    position:relative; margin-top:28px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.32);
+    font-family:'Noto Serif KR',serif; font-size:18px; color:#FFF3DC; font-weight:600; line-height:1.75;
+  }
+  .hero-verse b{ color:#FFFFFF; }
+
+  /* ---------- Intro ---------- */
+  .intro{ padding:8px 4px 28px; }
+  .intro p{ font-size:19px; color:var(--ink); margin:0 0 18px; }
+  .intro p:last-child{ margin-bottom:0; }
+  .intro b{ color:var(--coral-deep); }
+
+  /* ---------- Spine sections ---------- */
+  .spine{ position:relative; margin-top:12px; }
+  .spine::before{
+    content:''; position:absolute; left:26px; top:8px; bottom:8px; width:3px;
+    background:linear-gradient(var(--gold), var(--indigo) 50%, var(--coral) 100%);
+    border-radius:3px; opacity:.55;
+  }
+  .station{ position:relative; padding:2px 0 44px 72px; }
+  .station:last-child{ padding-bottom:6px; }
+  .station-num{
+    position:absolute; left:0; top:0; width:52px; height:52px; border-radius:50%;
+    color:#FFFDF6; font-family:'Noto Serif KR',serif; font-weight:800; font-size:21px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:var(--shadow);
+  }
+  .station:nth-child(3n+1) .station-num{ background:var(--gold); }
+  .station:nth-child(3n+2) .station-num{ background:var(--indigo); }
+  .station:nth-child(3n+3) .station-num{ background:var(--coral); }
+
+  .station h2{ font-size:25px; margin:8px 0 14px; color:var(--ink); line-height:1.4; }
+  .station p{ font-size:18.5px; color:var(--ink); margin:0 0 16px; }
+  .station p.soft{ color:var(--ink-soft); font-size:17.5px; }
+  .station p:last-child{ margin-bottom:0; }
+  .station b{ color:var(--coral-deep); }
+
+  /* ---------- table ---------- */
+  .structure-table{ width:100%; border-collapse:collapse; margin:18px 0 20px; font-size:16px; }
+  .structure-table th,.structure-table td{
+    text-align:left; padding:13px 9px; border-bottom:2px solid var(--panel-line); vertical-align:top;
+  }
+  .structure-table th{ color:var(--ink-faint); font-weight:700; font-size:13px; letter-spacing:.03em; }
+  .structure-table td:first-child{ color:var(--ink); font-weight:700; }
+  .structure-table td:nth-child(2){ color:var(--coral-deep); font-weight:700; white-space:nowrap; }
+
+  .seed-table{ width:100%; border-collapse:collapse; margin:16px 0 4px; font-size:15.5px; }
+  .seed-table th,.seed-table td{ text-align:left; padding:12px 9px; border-bottom:2px solid var(--panel-line); vertical-align:top; }
+  .seed-table th{ color:var(--ink-faint); font-weight:700; font-size:12.5px; letter-spacing:.03em; }
+  .seed-table td:nth-child(2){ white-space:nowrap; }
+  .seed-table td:nth-child(2) span{
+    display:inline-block; padding:4px 10px; border-radius:8px; font-size:13.5px; font-weight:800; color:#FFF;
+  }
+  .seed-table tr:nth-child(2) td:nth-child(2) span{ background:var(--coral); }
+  .seed-table tr:nth-child(3) td:nth-child(2) span{ background:var(--indigo); }
+  .seed-table tr:nth-child(4) td:nth-child(2) span{ background:var(--gold); }
+  .table-note{ font-size:15px; color:var(--ink-faint); margin-top:14px; line-height:1.75; border-left:3px solid var(--panel-line); padding-left:13px; }
+
+  /* ---------- two-column compare ---------- */
+  .compare{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:18px 0 6px; }
+  .compare-card{ border-radius:14px; padding:17px 16px; box-shadow:var(--shadow); }
+  .compare-card.paul{ background:var(--indigo-tint); border:1.5px solid var(--indigo); }
+  .compare-card.james{ background:var(--coral-tint); border:1.5px solid var(--coral); }
+  .compare-card .label{ font-size:14px; font-weight:800; letter-spacing:.02em; margin-bottom:9px; }
+  .compare-card.paul .label{ color:var(--indigo-deep); }
+  .compare-card.james .label{ color:var(--coral-deep); }
+  .compare-card .body{ font-size:15.5px; color:var(--ink); line-height:1.75; font-weight:500; }
+
+  /* ---------- three theme cards ---------- */
+  .theme-grid{ display:flex; flex-direction:column; gap:12px; margin:18px 0 6px; }
+  .theme-card{
+    background:var(--panel); border:2px solid var(--panel-line); border-radius:14px;
+    padding:17px 18px; box-shadow:var(--shadow);
+  }
+  .theme-card .t-title{ font-family:'Noto Serif KR',serif; font-weight:800; font-size:18.5px; margin-bottom:7px; }
+  .theme-card:nth-child(1) .t-title{ color:var(--gold-deep); }
+  .theme-card:nth-child(2) .t-title{ color:var(--indigo-deep); }
+  .theme-card:nth-child(3) .t-title{ color:var(--coral-deep); }
+  .theme-card .t-body{ font-size:16.5px; color:var(--ink-soft); line-height:1.75; }
+
+  /* ---------- key verse ---------- */
+  .key-verse{
+    background:var(--indigo-deep); border-radius:16px;
+    padding:28px 24px; margin:18px 0 6px; box-shadow:var(--shadow);
+  }
+  .key-verse blockquote{
+    margin:0 0 12px; font-family:'Noto Serif KR',serif; font-size:20px; line-height:1.72;
+    color:#FFFDF6; font-weight:700;
+  }
+  .key-verse cite{ font-style:normal; font-size:15.5px; color:#DCE2F4; font-weight:600; }
+  .key-question{
+    margin-top:18px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.25);
+    font-size:17px; color:#FFF3DC; font-weight:700; line-height:1.7;
+  }
+
+  /* ---------- Questions callout ---------- */
+  .questions{
+    margin:48px 0 40px; padding:32px 22px; border-radius:22px;
+    background:var(--indigo-tint); border:2px solid var(--indigo);
+  }
+  .questions .qtag{
+    display:inline-block; font-size:14.5px; font-weight:800; letter-spacing:.04em; color:#FFFFFF;
+    background:var(--indigo); border-radius:999px; padding:7px 15px; margin-bottom:16px;
+  }
+  .questions h2{ font-size:26px; margin:0 0 12px; color:var(--indigo-deep); line-height:1.4; }
+  .questions > p.lead{ font-size:17px; color:var(--ink-soft); margin:0 0 24px; line-height:1.75; }
+  .qlist{ display:flex; flex-direction:column; gap:16px; }
+  .qitem{
+    display:flex; gap:16px; align-items:flex-start; background:var(--panel);
+    border-radius:14px; padding:19px 18px; box-shadow:var(--shadow);
+  }
+  .qitem .qnum{
+    font-family:'Noto Serif KR',serif; font-weight:800; font-size:20px; color:#FFF;
+    background:var(--indigo); width:36px; height:36px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex:none;
+  }
+  .qitem .qbody h3{ font-size:20px; margin:0 0 7px; color:var(--ink); line-height:1.4; }
+  .qitem .qbody p{ font-size:16.5px; color:var(--ink-soft); margin:0; line-height:1.7; }
+
+  .also{ margin-top:26px; padding-top:22px; border-top:2px dashed var(--indigo); }
+  .also p.lead{ font-size:15.5px; color:var(--indigo-deep); font-weight:700; margin:0 0 13px; }
+  .also ol{ margin:0; padding-left:24px; }
+  .also li{ font-size:16.5px; color:var(--ink); margin-bottom:11px; line-height:1.7; }
+  .also li:last-child{ margin-bottom:0; }
+
+  /* ---------- footer ---------- */
+  footer{ text-align:center; padding-top:8px; }
+  footer .sched{ font-size:15.5px; color:var(--ink-faint); margin-bottom:26px; line-height:1.85; }
+  footer .signoff{
+    font-family:'Noto Serif KR',serif; font-size:17.5px; color:var(--ink-soft); font-weight:600;
+    border-top:2px solid var(--panel-line); padding-top:26px;
+  }
+  footer .church{ display:flex; align-items:center; justify-content:center; gap:9px; margin-top:12px; font-weight:800; color:var(--coral-deep); font-size:19.5px; letter-spacing:.01em; }
+  footer .church img{ height:26px; width:auto; display:block; }
+
+  @media (max-width:420px){
+    body{ font-size:17.5px; }
+    h1.title{ font-size:33px; }
+    .compare{ grid-template-columns:1fr; }
+    header.hero{ padding:34px 20px 28px; }
+    .station{ padding-left:60px; }
+    .station-num{ width:44px; height:44px; font-size:18px; }
+    .spine::before{ left:21px; }
+  }
+
+  /* ---------- 이번에 읽는 부분 ---------- */
+  .range{ margin:48px 0 8px; padding:30px 20px; border-radius:22px; background:var(--panel); border:2px solid var(--panel-line); box-shadow:var(--shadow); }
+  .range .qtag{ display:inline-block; font-size:14.5px; font-weight:800; color:#FFF; background:var(--coral); border-radius:999px; padding:7px 15px; margin-bottom:14px; }
+  .range h2{ font-size:26px; margin:0 0 10px; color:var(--ink); line-height:1.4; }
+  .range > p.lead{ font-size:16.5px; color:var(--ink-soft); margin:0 0 18px; line-height:1.75; }
+  .date-table{ width:100%; border-collapse:collapse; font-size:15.5px; margin:6px 0 22px; }
+  .date-table th,.date-table td{ text-align:left; padding:10px 8px; border-bottom:2px solid var(--panel-line); vertical-align:top; }
+  .date-table th{ color:var(--ink-faint); font-weight:700; font-size:12.5px; }
+  .date-table td:nth-child(1){ white-space:nowrap; font-weight:700; color:var(--ink); }
+  .date-table td:nth-child(2){ white-space:nowrap; color:var(--coral-deep); font-weight:700; }
+  .block-card{ border-radius:14px; padding:17px 18px; margin:0 0 12px; border:2px solid var(--panel-line); background:var(--bg); }
+  .block-card .b-title{ font-family:'Noto Serif KR',serif; font-weight:800; font-size:18.5px; margin-bottom:6px; color:var(--indigo-deep); }
+  .block-card .b-genre{ font-size:13.5px; font-weight:800; color:var(--coral-deep); margin-bottom:8px; }
+  .block-card p{ font-size:16px; color:var(--ink-soft); line-height:1.75; margin:0 0 8px; }
+  .block-card blockquote{ margin:8px 0; padding:10px 14px; border-left:4px solid var(--gold); background:var(--gold-tint); font-family:'Noto Serif KR',serif; font-size:16.5px; line-height:1.7; color:var(--ink); }
+  .block-card .look{ font-size:15.5px; color:var(--indigo-deep); font-weight:700; margin:8px 0 0; }
+  .structure-table td:first-child{ white-space:nowrap; }
+
+  /* ---------- 전체 그림 구분 · 편지 순서 ---------- */
+  .part-tag{ display:inline-block; font-size:14.5px; font-weight:800; letter-spacing:.03em; color:#FFF; background:var(--indigo); border-radius:999px; padding:7px 15px; margin:8px 0 18px; }
+  .flow{ margin:16px 0 14px; padding-left:26px; }
+  .flow li{ font-size:17px; color:var(--ink); margin-bottom:9px; line-height:1.7; }
+  .flow li b{ color:var(--coral-deep); }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">순천서남교회 말씀공동체 · 새벽설교 시리즈</span>
+    <h1 class="title">고린도후서, 읽기 전에</h1>
+    <p class="subtitle">위로받아 본 사람이 위로하는 사람이 되는 길.<br>약함 속에서 능력을 배운 사도의 가장 솔직한 편지입니다.</p>
+    <p class="hero-verse">"우리의 모든 환난 중에서 우리를 위로하사 우리로 하여금 하나님께 받는 위로로써 모든 환난 중에 있는 자들을 능히 <b>위로하게</b> 하시는 이시로다"<br>— 고린도후서 1:4</p>
+  </header>
+
+  <section class="intro">
+    <p>시편은 <b>기도와 찬양의 책</b>이었습니다. 기쁨도 탄식도 하나님께 가져가라고 가르쳤고, 19편은 말없이 말하는 하늘과 숨은 허물에서 건져 달라는 기도로 한 구간을 마쳤습니다. 고린도후서는 그 기도를 가장 아픈 현장에서 <b>살아 낸 한 사람</b>의 편지입니다.</p>
+    <p>톰 라이트는 이 편지를 폭격이 지나간 뒤 자기 집 폐허에서 막 걸어 나온 사람이 쓴 편지 같다고 소개합니다. 사도 바울은 자격을 의심받고, 몸이 약하다고 조롱받고, 살 소망까지 끊어졌던 일을 숨기지 않고 꺼내 놓습니다. 그런데 모든 이야기의 맨 앞에 <b>'찬송하리로다'</b>가 놓여 있습니다.</p>
+    <p>다만 이 편지는 조금 낯섭니다. 친구가 어느 집에 들어갔다가 멍들고 절뚝거리며 나왔는데, 그 안에서 무슨 일이 있었는지는 말해 주지 않는 편지와 같습니다. 그래서 편지 안의 단서를 따라 사정을 짐작해 가야 합니다.</p>
+  </section>
+
+  <div class="part-tag">전체 그림 · 책 전체를 먼저 한눈에</div>
+
+  <div class="spine">
+
+    <div class="station">
+      <div class="station-num">1</div>
+      <h2>누가, 언제, 어디서 썼는가</h2>
+      <p>발신자는 사도 바울이고, 형제 디모데가 공동 발신자로 이름을 올립니다(1:1). 수신자는 고린도에 있는 하나님의 교회와 온 아가야의 모든 성도입니다.</p>
+      <p>바울은 주후 50년 무렵 고린도에 들어가 약 18개월을 머물며 교회를 세웠고(행 18장), 이후 에베소에서 고린도전서를 쓰고, 마게도냐에서 이 편지를 씁니다.</p>
+      <p class="soft">⚠️ 집필 연대는 주후 55~57년경으로, 56년경(크루즈)부터 55년 가을(조석민)까지 학자마다 폭이 있습니다. '마게도냐에서'라는 점은 읽은 주석 대부분이 같습니다.</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">2</div>
+      <h2>고린도는 어떤 도시였는가</h2>
+      <p>고린도는 그리스 본토와 펠로폰네소스를 잇는 좁은 지협의 항구도시였습니다. 서쪽 레카이움과 동쪽 겐그레아, 두 항구가 있어 돈과 사람과 소문이 드나드는 길목이었습니다. 바울의 때에는 아가야 속주의 수도로, 여러 민족이 섞여 살고 유대인 공동체도 있었습니다.</p>
+      <p class="soft">'천 명의 신전 창녀'의 도시라는 이야기는 옛 고린도의 기록이어서 바울 시대에 그대로 적용하기는 어렵다는 지적이 있습니다. ⚠️ 이 점은 자료마다 다릅니다. 확실한 것은 우상과 이권, 말 잘하는 사람이 대접받던 로마 상업도시였다는 정도입니다.</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">3</div>
+      <h2>편지가 오간 길</h2>
+      <p>고린도후서를 읽을 때 가장 헷갈리는 것이 편지와 방문의 순서입니다. 읽은 자료들이 대체로 함께 그리는 뼈대는 이렇습니다.</p>
+      <ol class="flow">
+        <li><b>앞선 편지</b> — 고전 5:9에 언급, 지금은 전해지지 않음</li>
+        <li><b>고린도전서</b> — 에베소에서</li>
+        <li><b>고통스러운 방문</b> — 디모데를 보내도 나아지지 않아 바울이 직접 다녀옴(고후 2:1; 13:2)</li>
+        <li><b>눈물의 편지</b> — 마음이 괴로워 눈물로 쓴 편지(2:3~4; 7:8)</li>
+        <li><b>디도를 기다림</b> — 드로아, 마게도냐에서 불안하게(2:12~13)</li>
+        <li><b>좋은 소식</b> — 디도가 와서 기쁨을 전함(7:5~7)</li>
+        <li><b>고린도후서</b> — 그 기쁨으로 씀</li>
+      </ol>
+      <p class="table-note">⚠️ 세부는 학자마다 다릅니다. 크루즈·마틴은 고린도에 모두 다섯 통, 바네트는 네 통으로 정리하고, 눈물의 편지는 대다수가 전해지지 않는 편지로 보지만 랜스키는 고린도전서 자체로, 바클레이는 고후 10~13장으로 봅니다. 톰 라이트도 이 재구성이 모두 '짐작'이라고 밝힙니다.</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">4</div>
+      <h2>왜 썼는가 — 사도직을 지키는 일</h2>
+      <p>사도란 '보냄받은 자'입니다. 바울은 다메섹 도상에서 부활하신 주님을 만나 보냄받았다고 말하지만 그 사건에는 증인이 없었습니다. 고린도 안에서는 바울의 자격을 의심하는 목소리가 있었고, 대적하는 이들은 그가 말은 서툴고 몸은 약하다고 비판했습니다(10:10; 11:6).</p>
+      <p>LAB 주석의 비유가 쉽습니다. 처음 만난 배관공이나 의사에게는 자격증을 보여 달라고 하지만 오랜 친구에게는 그러지 않습니다. 그런데 바울은 친구라고 믿었던 교회 앞에서 자격을 말해야 하는 처지가 되었습니다.</p>
+      <p class="soft">누가 맞섰는지는 ⚠️ 정체가 갈립니다(헬라 세계를 아는 유대인 그리스도인, 정체 확정 곤란, 바울이 떠난 뒤 온 교사들). 크루즈에 따르면 그들은 외모, 달변, 권위, 환상과 표적, 예루살렘 추천서를 앞세웠고, 바울은 약함 가운데 하나님의 능력이 머무는 십자가 모양의 사역을 내세웠습니다. 이기려는 변호가 아니라 깨어진 관계를 사랑으로 다시 잇는 변호입니다.</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">5</div>
+      <h2>책의 구조 — 세 갈래의 이야기</h2>
+      <table class="structure-table">
+        <tr><th>부분</th><th>범위</th><th>특징</th></tr>
+        <tr><td>1부</td><td>1~7장</td><td>사도직의 변호와 관계 회복. 고난 중의 위로(1장), 새 언약의 직분(3장), 질그릇 속 보배(4장), 화목하게 하는 직분(5장)</td></tr>
+        <tr><td>2부</td><td>8~9장</td><td>예루살렘 교회를 위한 연보. 은혜로 시작해 기쁜 나눔으로 이어짐</td></tr>
+        <tr><td>3부</td><td>10~13장</td><td>대적자들 앞에서의 사도직 옹호. 약함을 자랑하는 바울의 역설(11~12장)</td></tr>
+      </table>
+      <p class="table-note">⚠️ 학자들이 오래 다툰 질문이 둘 있습니다. <b>① 한 통의 편지인가?</b> 크루즈·마틴은 10~13장을 1~9장 뒤의 별개 편지로, 김판임은 1~9장보다 앞선 편지로 보지만 랜스키·조병수·조석민·하프만·LAB 주석은 한 편지로 읽습니다. <b>② 6:14~7:1은 끼워 넣은 것인가?</b> 삽입설(마틴, 김판임 등)과 문맥에 맞는 바울의 글로 보는 입장(조병수, 조석민, 하프만 등)이 갈립니다. 오늘 우리는 한 편지로 읽어도 지장이 없습니다.</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">6</div>
+      <h2>핵심 주제 다섯</h2>
+      <div class="theme-grid">
+        <div class="theme-card">
+          <div class="t-title">고난과 위로는 함께 넘친다</div>
+          <div class="t-body">1:5는 그리스도의 고난이 넘치는 만큼 위로도 넘친다고 말합니다. 바울은 1:3~7의 다섯 절에서 '위로'를 열 번이나 되풀이합니다(라이트). 이 낱말은 '가까이 부르다, 권면하다'까지 품어서, 있는 자리로 찾아와 새 길이 보이는 곳으로 데려가는 일에 가깝습니다. 위로는 고난이 없는 상태가 아니라 고난 한가운데 오시는 하나님의 곁입니다.</div>
+        </div>
+        <div class="theme-card">
+          <div class="t-title">약함 속의 능력</div>
+          <div class="t-body">4:7의 질그릇, 12:9의 '내 능력이 약한 데서 온전하여짐이라'가 이 주제를 대표합니다. 바울은 자랑할 것이 있다면 자신의 약함을 자랑하겠다고 말합니다. 하프만은 이것을 의지력과 긍정적 사고로 바꾸지 말라고 경고합니다.</div>
+        </div>
+        <div class="theme-card">
+          <div class="t-title">새 언약의 직분</div>
+          <div class="t-body">3장은 돌판에 새긴 율법과 마음에 새기는 영의 직분을 대비합니다. 라이트는 예레미야 31장의 새 언약에서 결정적인 차이가 성령이라고 읽습니다.</div>
+        </div>
+        <div class="theme-card">
+          <div class="t-title">화해의 사명</div>
+          <div class="t-body">5:18~20은 하나님이 그리스도 안에서 세상을 자기와 화목하게 하시고 우리에게 화목하게 하는 직분을 맡기셨다고 말합니다. 위로받은 사람은 화해를 전하는 사람으로 세워집니다.</div>
+        </div>
+        <div class="theme-card">
+          <div class="t-title">은혜로 드리는 연보</div>
+          <div class="t-body">8~9장은 예루살렘 교회를 돕는 연보를 강요가 아니라 은혜에 대한 응답으로 풀어 줍니다. 근거는 8:9, 부요하신 이가 우리를 위하여 가난하게 되셨다는 복음입니다.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="station">
+      <div class="station-num">7</div>
+      <h2>쉽게 풀어 보는 그림 셋</h2>
+      <div class="theme-grid">
+        <div class="theme-card">
+          <div class="t-title">보통 봉투와 기밀문서 (4:7)</div>
+          <div class="t-body">주미 영국 대사가 가장 중요한 비밀을 외교 행낭이 아니라 평범한 봉투에 담아 보냈다는 이야기를 톰 라이트가 소개합니다. 질그릇은 눈에 띄지 않는 봉투이고, 귀한 것은 안에 담긴 복음입니다. 봉투를 보고 편지를 판단하지 마십시오.</div>
+        </div>
+        <div class="theme-card">
+          <div class="t-title">영적 수학 (1:3~7)</div>
+          <div class="t-body">바울이 겪는 고난은 바울이 받는 하나님의 위로가 되고, 그 위로가 다시 다른 이들을 위로하는 힘이 됩니다(하프만). 고난이 낭비되지 않는다는 이야기입니다.</div>
+        </div>
+        <div class="theme-card">
+          <div class="t-title">한 멍에를 메는 소와 나귀 (6:14)</div>
+          <div class="t-body">힘이 다른 짐승을 한 멍에에 매면 밭이 고르게 갈리지 않습니다(신 22:10). 조병수와 LAB 주석은 이 그림으로 '만나지 말라'가 아니라 '섞여 성결을 잃지 말라'에 중심을 둡니다.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="key-verse" style="margin:0 0 40px;">
+    <blockquote>"나에게 이르시기를 내 은혜가 네게 족하도다 이는 내 능력이 약한 데서 온전하여짐이라"</blockquote>
+    <cite>고린도후서 12:9 · 1:4와 함께 책의 양쪽 끝에서 서로를 바라보는 구절</cite>
+    <p class="key-question">내가 받은 하나님의 위로를, 지금 고난 속에 있는 누군가에게 어떻게 흘려보낼 것인가?</p>
+  </div>
+
+  <section class="range">
+    <div class="qtag">이번에 읽는 부분 · 11월 1일~18일</div>
+    <h2>열여덟 번의 새벽, 고린도후서 전체</h2>
+    <p class="lead">매일성경은 11월 1일부터 18일까지 고린도후서 1장부터 13장까지를 차례로 읽습니다. 아래 한 줄 길잡이는 본문의 중심 장면을 짚은 것입니다.</p>
+    <table class="date-table">
+      <tr><th>날짜</th><th>본문</th><th>한 줄 길잡이</th></tr>
+      <tr><td>11/1</td><td>1:1~11</td><td>모든 위로의 하나님, 사형 선고를 받은 듯한 환난</td></tr>
+      <tr><td>11/2</td><td>1:12~22</td><td>바울의 진실함, 그리스도 안에서 '예'가 되는 약속</td></tr>
+      <tr><td>11/3</td><td>1:23~2:17</td><td>방문을 미룬 이유, 용서, 그리스도의 향기</td></tr>
+      <tr><td>11/4</td><td>3:1~18</td><td>새 언약의 일꾼, 영광에서 영광으로</td></tr>
+      <tr><td>11/5</td><td>4:1~18</td><td>질그릇 속의 보배, 보이지 않는 것을 바라봄</td></tr>
+      <tr><td>11/6</td><td>5:1~10</td><td>장막집과 영원한 집, 주님을 기쁘시게 하는 삶</td></tr>
+      <tr><td>11/7</td><td>5:11~21</td><td>그리스도의 사랑, 새로운 피조물, 화목하게 하는 직분</td></tr>
+      <tr><td>11/8</td><td>6:1~7:1</td><td>지금이 은혜 받을 때, 거룩함을 온전히 이룸</td></tr>
+      <tr><td>11/9</td><td>7:2~16</td><td>하나님의 뜻대로 하는 근심, 디도의 기쁜 소식</td></tr>
+      <tr><td>11/10</td><td>8:1~15</td><td>마게도냐 교회의 넘치는 연보, 그리스도의 은혜</td></tr>
+      <tr><td>11/11</td><td>8:16~24</td><td>연보를 맡은 동역자들, 투명한 섬김</td></tr>
+      <tr><td>11/12</td><td>9:1~15</td><td>즐겨 내는 자, 말할 수 없는 선물</td></tr>
+      <tr><td>11/13</td><td>10:1~18</td><td>육신이 아닌 능력으로 싸움, 주 안에서 자랑</td></tr>
+      <tr><td>11/14</td><td>11:1~15</td><td>다른 예수를 전하는 거짓 사도들</td></tr>
+      <tr><td>11/15</td><td>11:16~33</td><td>어리석은 자랑, 바울의 고난 목록</td></tr>
+      <tr><td>11/16</td><td>12:1~13</td><td>셋째 하늘, 육체의 가시, 약할 때 강함</td></tr>
+      <tr><td>11/17</td><td>12:14~21</td><td>세 번째 방문을 앞둔 아버지의 마음</td></tr>
+      <tr><td>11/18</td><td>13:1~13</td><td>자신을 시험하라, 마지막 권면과 축도</td></tr>
+    </table>
+
+    <div class="block-card">
+      <div class="b-title">1~2장 · 위로와 진실함</div>
+      <div class="b-genre">갈래: 서신 서두와 변호</div>
+      <p>고난 중의 위로로 문을 열고(1:3~11), 방문 계획이 바뀐 일에 대해 바울이 진실하게 설명합니다. 1:8의 '아시아에서 당한 환난'이 무엇이었는지 본문은 밝히지 않습니다. ⚠️ 에베소 소동(행 19장)으로 보는 견해가 많지만 정체 불명이라는 자료도 있습니다. 1:9의 '사형 선고'는 바울 자신이 안으로 받은 줄 알았다는 뜻으로 읽는 주석이 많습니다.</p>
+      <blockquote>"하나님의 약속은 얼마든지 그리스도 안에서 예가 되니 그런즉 그로 말미암아 우리가 아멘 하여 하나님께 영광을 돌리게 되느니라"<br>— 1:20</blockquote>
+      <p class="look">읽을 때 볼 질문: 바울이 해명보다 찬송을 먼저 꺼낸 까닭은 무엇인가?</p>
+    </div>
+    <div class="block-card">
+      <div class="b-title">3~4장 · 새 언약의 일꾼과 질그릇</div>
+      <div class="b-genre">갈래: 사역 신학</div>
+      <p>돌판의 율법이 아닌 영의 직분, 그리고 연약한 그릇에 담긴 복음의 보배를 다룹니다. 4:8~9의 '…하여도 …하지 아니하며'가 거듭되는 구조를 눈여겨보십시오.</p>
+      <blockquote>"우리가 이 보배를 질그릇에 가졌으니 이는 심히 큰 능력은 하나님께 있고 우리에게 있지 아니함을 알게 하려 함이라"<br>— 4:7</blockquote>
+      <p class="look">읽을 때 볼 질문: 나의 어떤 연약함이 하나님의 능력이 드러나는 자리가 될 수 있는가?</p>
+    </div>
+    <div class="block-card">
+      <div class="b-title">5~7장 · 화목하게 하는 직분</div>
+      <div class="b-genre">갈래: 복음의 요약과 권면</div>
+      <p>그리스도 안에서 새로운 피조물이 된 사람이 화해의 사신으로 세워집니다. 6:14~7:1의 '멍에' 단락은 해석이 갈리는 곳이어서(⚠️ 삽입설 여부, '믿지 않는 자'가 누구인가) 8일 새벽에 조심스럽게 읽습니다.</p>
+      <blockquote>"그런즉 누구든지 그리스도 안에 있으면 새로운 피조물이라 이전 것은 지나갔으니 보라 새 것이 되었도다"<br>— 5:17</blockquote>
+      <p class="look">읽을 때 볼 질문: 내가 화해를 전해야 할 사람은 누구인가?</p>
+    </div>
+    <div class="block-card">
+      <div class="b-title">8~9장 · 은혜로 드리는 연보</div>
+      <div class="b-genre">갈래: 목회적 권면</div>
+      <p>예루살렘 교회를 돕는 연보를 강요가 아니라 은혜에 대한 응답으로 풀어 줍니다.</p>
+      <blockquote>"각각 그 마음에 정한 대로 할 것이요 인색함으로나 억지로 하지 말지니 하나님은 즐겨 내는 자를 사랑하시느니라"<br>— 9:7</blockquote>
+      <p class="look">읽을 때 볼 질문: 내가 드리는 것은 의무인가, 받은 은혜에 대한 응답인가?</p>
+    </div>
+    <div class="block-card">
+      <div class="b-title">10~13장 · 약함을 자랑하다</div>
+      <div class="b-genre">갈래: 사도직 옹호와 마지막 권면</div>
+      <p>대적자들 앞에서 바울은 업적 대신 약함을 자랑하고, 편지는 삼위 하나님의 축도로 닫힙니다. 12장의 '육체의 가시'가 무엇인지는 본문이 밝히지 않아 알 수 없습니다. 반대자, 유혹, 육체의 병 등 여러 견해가 있을 뿐입니다.</p>
+      <blockquote>"주 예수 그리스도의 은혜와 하나님의 사랑과 성령의 교통하심이 너희 무리와 함께 있을지어다"<br>— 13:13</blockquote>
+      <p class="look">읽을 때 볼 질문: 내가 감추고 싶은 약함은 무엇이며, 그것을 하나님 앞에 내놓을 수 있는가?</p>
+    </div>
+    <p class="table-note" style="margin-top:14px;">⚠️ 한 줄 길잡이와 블록 설명은 본문의 중심 장면을 요약한 길잡이입니다. 해석이 갈리는 대목은 날마다 새벽설교에서 조심스럽게 다룹니다.</p>
+  </section>
+
+  <section class="questions">
+    <div class="qtag">매일 본문을 읽은 뒤</div>
+    <h2>말씀 앞에 던질 질문</h2>
+    <p class="lead">고린도후서의 본문 하나하나는 다르지만, 그 앞에서 우리가 던질 질문은 매일 같습니다. 읽기를 마친 뒤 잠시 멈추어 이 질문들을 스스로에게 물어보십시오.</p>
+    <div class="qlist">
+      <div class="qitem">
+        <div class="qnum">1</div>
+        <div class="qbody">
+          <h3>하나님은 어떤 분이신가?</h3>
+          <p>오늘 본문의 낱말과 장면에서 실제로 드러나는 하나님을 붙잡으십시오. 일반적인 신관이 아니라, 그날 본문이 보여 주는 하나님입니다.</p>
+        </div>
+      </div>
+      <div class="qitem">
+        <div class="qnum">2</div>
+        <div class="qbody">
+          <h3>내가 받은 위로를, 오늘 누구에게 흘려보낼 수 있는가?</h3>
+          <p>고린도후서를 바울의 사정으로만 읽지 마십시오. 하나님께 받은 위로가 오늘 내 곁의 누구에게 닿아야 하는지를 물어보십시오.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="also">
+      <p class="lead">본문을 읽는 동안 함께 살펴도 좋은 질문 셋</p>
+      <ol>
+        <li>오늘 본문에서 바울은 자신의 강함을 말하는가, 약함을 말하는가?</li>
+        <li>오늘 본문에서 '위로'나 '화해'를 뜻하는 낱말은 누구에게서 누구에게로 흘러가는가?</li>
+        <li>오늘 말씀이 가리키는 구체적 한 걸음은 무엇이며, 그것을 오늘·내일 중 언제 옮길 수 있는가?</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <p class="sched">청장년 새벽설교문은 개역개정, 교회학교 중고등부 설교문은 표준새번역을 따라 매일 함께 나갑니다.</p>
+    <p class="signoff">받은 위로를 흘려보내는 길 위에서 함께 걷기를 구하며,
+      <span class="church"><img src="assets/PCK_Logo.png" alt="대한예수교장로회(통합) 교단 마크">순천서남교회 말씀공동체</span>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

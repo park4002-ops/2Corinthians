@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>고린도후서 탐험대 — 순천서남교회</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700;900&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F3EA;
+    --panel:#FFFFFF;
+    --panel-line:#E2DBC8;
+    --ink:#2B2A4A;
+    --ink-soft:#4E4C73;
+    --ink-faint:#8987A6;
+    --gold:#D9953A;
+    --gold-deep:#9A6420;
+    --gold-tint:#FBEBD2;
+    --indigo:#2E7D80;
+    --indigo-deep:#1D5A5D;
+    --indigo-tint:#DFF0F0;
+    --coral:#C8607A;
+    --coral-deep:#8F3A52;
+    --coral-tint:#F8E1E8;
+    --shadow: 0 2px 4px rgba(43,42,74,0.07), 0 14px 32px -16px rgba(43,42,74,0.24);
+  }
+
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html{ color-scheme: light; }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    line-height:1.8;
+    font-size:19px;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+  }
+  .wrap{ max-width:640px; margin:0 auto; padding:0 18px 90px; }
+
+  h1,h2,h3{ font-family:'Noto Serif KR','Batang',serif; font-weight:800; letter-spacing:-0.01em; text-wrap:balance; }
+
+  /* ---------- Hero banner ---------- */
+  header.hero{
+    margin:20px 0 28px; border-radius:22px; overflow:hidden; position:relative;
+    background:linear-gradient(150deg, var(--indigo-deep) 0%, var(--coral) 100%);
+    box-shadow:var(--shadow); padding:40px 26px 34px; text-align:center; color:#FFF8EE;
+  }
+  header.hero::after{
+    content:''; position:absolute; left:0; right:0; bottom:0; height:46%;
+    background:radial-gradient(circle at 50% 120%, rgba(255,214,158,0.55), transparent 60%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    position:relative; display:inline-block; font-size:15px; font-weight:700; letter-spacing:0.03em;
+    color:#FFF3DC; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.35);
+    border-radius:999px; padding:8px 16px; margin-bottom:22px;
+  }
+  h1.title{ position:relative; font-size:42px; line-height:1.28; margin:0 0 16px; color:#FFFDF6; }
+  .subtitle{ position:relative; font-size:19px; color:#E6F4F2; max-width:26em; margin:0 auto; font-weight:500; line-height:1.7; }
+  .hero-verse{
+    position:relative; margin-top:28px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.32);
+    font-family:'Noto Serif KR',serif; font-size:18px; color:#FFF3DC; font-weight:600; line-height:1.75;
+  }
+  .hero-verse b{ color:#FFFFFF; }
+
+  /* ---------- Intro ---------- */
+  .intro{ padding:8px 4px 28px; }
+  .intro p{ font-size:19px; color:var(--ink); margin:0 0 18px; }
+  .intro p:last-child{ margin-bottom:0; }
+  .intro b{ color:var(--coral-deep); }
+
+  /* ---------- Spine sections ---------- */
+  .spine{ position:relative; margin-top:12px; }
+  .spine::before{
+    content:''; position:absolute; left:26px; top:8px; bottom:8px; width:3px;
+    background:linear-gradient(var(--gold), var(--indigo) 50%, var(--coral) 100%);
+    border-radius:3px; opacity:.55;
+  }
+  .station{ position:relative; padding:2px 0 44px 72px; }
+  .station:last-child{ padding-bottom:6px; }
+  .station-num{
+    position:absolute; left:0; top:0; width:52px; height:52px; border-radius:50%;
+    color:#FFFDF6; font-family:'Noto Serif KR',serif; font-weight:800; font-size:21px;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:var(--shadow);
+  }
+  .station:nth-child(3n+1) .station-num{ background:var(--gold); }
+  .station:nth-child(3n+2) .station-num{ background:var(--indigo); }
+  .station:nth-child(3n+3) .station-num{ background:var(--coral); }
+
+  .station h2{ font-size:25px; margin:8px 0 14px; color:var(--ink); line-height:1.4; }
+  .station p{ font-size:18.5px; color:var(--ink); margin:0 0 16px; }
+  .station p.soft{ color:var(--ink-soft); font-size:17.5px; }
+  .station p:last-child{ margin-bottom:0; }
+  .station b{ color:var(--coral-deep); }
+
+  /* ---------- table ---------- */
+  .structure-table{ width:100%; border-collapse:collapse; margin:18px 0 20px; font-size:16px; }
+  .structure-table th,.structure-table td{
+    text-align:left; padding:13px 9px; border-bottom:2px solid var(--panel-line); vertical-align:top;
+  }
+  .structure-table th{ color:var(--ink-faint); font-weight:700; font-size:13px; letter-spacing:.03em; }
+  .structure-table td:first-child{ color:var(--ink); font-weight:700; }
+  .structure-table td:nth-child(2){ color:var(--coral-deep); font-weight:700; white-space:nowrap; }
+
+  .seed-table{ width:100%; border-collapse:collapse; margin:16px 0 4px; font-size:15.5px; }
+  .seed-table th,.seed-table td{ text-align:left; padding:12px 9px; border-bottom:2px solid var(--panel-line); vertical-align:top; }
+  .seed-table th{ color:var(--ink-faint); font-weight:700; font-size:12.5px; letter-spacing:.03em; }
+  .seed-table td:nth-child(2){ white-space:nowrap; }
+  .seed-table td:nth-child(2) span{
+    display:inline-block; padding:4px 10px; border-radius:8px; font-size:13.5px; font-weight:800; color:#FFF;
+  }
+  .seed-table tr:nth-child(2) td:nth-child(2) span{ background:var(--coral); }
+  .seed-table tr:nth-child(3) td:nth-child(2) span{ background:var(--indigo); }
+  .seed-table tr:nth-child(4) td:nth-child(2) span{ background:var(--gold); }
+  .table-note{ font-size:15px; color:var(--ink-faint); margin-top:14px; line-height:1.75; border-left:3px solid var(--panel-line); padding-left:13px; }
+
+  /* ---------- two-column compare ---------- */
+  .compare{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:18px 0 6px; }
+  .compare-card{ border-radius:14px; padding:17px 16px; box-shadow:var(--shadow); }
+  .compare-card.paul{ background:var(--indigo-tint); border:1.5px solid var(--indigo); }
+  .compare-card.james{ background:var(--coral-tint); border:1.5px solid var(--coral); }
+  .compare-card .label{ font-size:14px; font-weight:800; letter-spacing:.02em; margin-bottom:9px; }
+  .compare-card.paul .label{ color:var(--indigo-deep); }
+  .compare-card.james .label{ color:var(--coral-deep); }
+  .compare-card .body{ font-size:15.5px; color:var(--ink); line-height:1.75; font-weight:500; }
+
+  /* ---------- three theme cards ---------- */
+  .theme-grid{ display:flex; flex-direction:column; gap:12px; margin:18px 0 6px; }
+  .theme-card{
+    background:var(--panel); border:2px solid var(--panel-line); border-radius:14px;
+    padding:17px 18px; box-shadow:var(--shadow);
+  }
+  .theme-card .t-title{ font-family:'Noto Serif KR',serif; font-weight:800; font-size:18.5px; margin-bottom:7px; }
+  .theme-card:nth-child(1) .t-title{ color:var(--gold-deep); }
+  .theme-card:nth-child(2) .t-title{ color:var(--indigo-deep); }
+  .theme-card:nth-child(3) .t-title{ color:var(--coral-deep); }
+  .theme-card .t-body{ font-size:16.5px; color:var(--ink-soft); line-height:1.75; }
+
+  /* ---------- key verse ---------- */
+  .key-verse{
+    background:var(--indigo-deep); border-radius:16px;
+    padding:28px 24px; margin:18px 0 6px; box-shadow:var(--shadow);
+  }
+  .key-verse blockquote{
+    margin:0 0 12px; font-family:'Noto Serif KR',serif; font-size:20px; line-height:1.72;
+    color:#FFFDF6; font-weight:700;
+  }
+  .key-verse cite{ font-style:normal; font-size:15.5px; color:#DCE2F4; font-weight:600; }
+  .key-question{
+    margin-top:18px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.25);
+    font-size:17px; color:#FFF3DC; font-weight:700; line-height:1.7;
+  }
+
+  /* ---------- Questions callout ---------- */
+  .questions{
+    margin:48px 0 40px; padding:32px 22px; border-radius:22px;
+    background:var(--indigo-tint); border:2px solid var(--indigo);
+  }
+  .questions .qtag{
+    display:inline-block; font-size:14.5px; font-weight:800; letter-spacing:.04em; color:#FFFFFF;
+    background:var(--indigo); border-radius:999px; padding:7px 15px; margin-bottom:16px;
+  }
+  .questions h2{ font-size:26px; margin:0 0 12px; color:var(--indigo-deep); line-height:1.4; }
+  .questions > p.lead{ font-size:17px; color:var(--ink-soft); margin:0 0 24px; line-height:1.75; }
+  .qlist{ display:flex; flex-direction:column; gap:16px; }
+  .qitem{
+    display:flex; gap:16px; align-items:flex-start; background:var(--panel);
+    border-radius:14px; padding:19px 18px; box-shadow:var(--shadow);
+  }
+  .qitem .qnum{
+    font-family:'Noto Serif KR',serif; font-weight:800; font-size:20px; color:#FFF;
+    background:var(--indigo); width:36px; height:36px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex:none;
+  }
+  .qitem .qbody h3{ font-size:20px; margin:0 0 7px; color:var(--ink); line-height:1.4; }
+  .qitem .qbody p{ font-size:16.5px; color:var(--ink-soft); margin:0; line-height:1.7; }
+
+  .also{ margin-top:26px; padding-top:22px; border-top:2px dashed var(--indigo); }
+  .also p.lead{ font-size:15.5px; color:var(--indigo-deep); font-weight:700; margin:0 0 13px; }
+  .also ol{ margin:0; padding-left:24px; }
+  .also li{ font-size:16.5px; color:var(--ink); margin-bottom:11px; line-height:1.7; }
+  .also li:last-child{ margin-bottom:0; }
+
+  /* ---------- footer ---------- */
+  footer{ text-align:center; padding-top:8px; }
+  footer .sched{ font-size:15.5px; color:var(--ink-faint); margin-bottom:26px; line-height:1.85; }
+  footer .signoff{
+    font-family:'Noto Serif KR',serif; font-size:17.5px; color:var(--ink-soft); font-weight:600;
+    border-top:2px solid var(--panel-line); padding-top:26px;
+  }
+  footer .church{ display:flex; align-items:center; justify-content:center; gap:9px; margin-top:12px; font-weight:800; color:var(--coral-deep); font-size:19.5px; letter-spacing:.01em; }
+  footer .church img{ height:26px; width:auto; display:block; }
+
+  @media (max-width:420px){
+    body{ font-size:17.5px; }
+    h1.title{ font-size:33px; }
+    .compare{ grid-template-columns:1fr; }
+    header.hero{ padding:34px 20px 28px; }
+    .station{ padding-left:60px; }
+    .station-num{ width:44px; height:44px; font-size:18px; }
+    .spine::before{ left:21px; }
+  }
+
+  /* ---------- 이번에 읽는 부분 ---------- */
+  .range{ margin:48px 0 8px; padding:30px 20px; border-radius:22px; background:var(--panel); border:2px solid var(--panel-line); box-shadow:var(--shadow); }
+  .range .qtag{ display:inline-block; font-size:14.5px; font-weight:800; color:#FFF; background:var(--coral); border-radius:999px; padding:7px 15px; margin-bottom:14px; }
+  .range h2{ font-size:26px; margin:0 0 10px; color:var(--ink); line-height:1.4; }
+  .range > p.lead{ font-size:16.5px; color:var(--ink-soft); margin:0 0 18px; line-height:1.75; }
+  .date-table{ width:100%; border-collapse:collapse; font-size:15.5px; margin:6px 0 22px; }
+  .date-table th,.date-table td{ text-align:left; padding:10px 8px; border-bottom:2px solid var(--panel-line); vertical-align:top; }
+  .date-table th{ color:var(--ink-faint); font-weight:700; font-size:12.5px; }
+  .date-table td:nth-child(1){ white-space:nowrap; font-weight:700; color:var(--ink); }
+  .date-table td:nth-child(2){ white-space:nowrap; color:var(--coral-deep); font-weight:700; }
+  .block-card{ border-radius:14px; padding:17px 18px; margin:0 0 12px; border:2px solid var(--panel-line); background:var(--bg); }
+  .block-card .b-title{ font-family:'Noto Serif KR',serif; font-weight:800; font-size:18.5px; margin-bottom:6px; color:var(--indigo-deep); }
+  .block-card .b-genre{ font-size:13.5px; font-weight:800; color:var(--coral-deep); margin-bottom:8px; }
+  .block-card p{ font-size:16px; color:var(--ink-soft); line-height:1.75; margin:0 0 8px; }
+  .block-card blockquote{ margin:8px 0; padding:10px 14px; border-left:4px solid var(--gold); background:var(--gold-tint); font-family:'Noto Serif KR',serif; font-size:16.5px; line-height:1.7; color:var(--ink); }
+  .block-card .look{ font-size:15.5px; color:var(--indigo-deep); font-weight:700; margin:8px 0 0; }
+  .structure-table td:first-child{ white-space:nowrap; }
+
+  /* ---------- 전체 그림 구분 · 편지 순서 ---------- */
+  .part-tag{ display:inline-block; font-size:14.5px; font-weight:800; letter-spacing:.03em; color:#FFF; background:var(--indigo); border-radius:999px; padding:7px 15px; margin:8px 0 18px; }
+  .flow{ margin:16px 0 14px; padding-left:26px; }
+  .flow li{ font-size:17px; color:var(--ink); margin-bottom:9px; line-height:1.7; }
+  .flow li b{ color:var(--coral-deep); }
+
+  /* ---------- 친숙판 추가 ---------- */
+  details.more{ margin:34px 0 12px; border:2px dashed var(--panel-line); border-radius:16px; padding:16px 18px; background:var(--panel); }
+  details.more summary{ cursor:pointer; font-family:'Noto Serif KR',serif; font-weight:800; font-size:19px; color:var(--indigo-deep); line-height:1.5; }
+  details.more .more-body{ margin-top:14px; }
+  details.more .more-body p{ font-size:16.5px; color:var(--ink-soft); line-height:1.8; margin:0 0 12px; }
+  details.more .more-body p b{ color:var(--coral-deep); }
+  .tip{ margin:0 0 16px; padding:14px 16px; border-radius:12px; background:var(--gold-tint); color:var(--ink); font-size:17px; line-height:1.75; }
+
+  /* ---------- 어린이·청소년판 ---------- */
+  body.kids{ font-size:19px; }
+  body.kids header.hero{ background:linear-gradient(150deg, #E0983C 0%, #C8607A 55%, #2E7D80 100%); }
+  body.kids h1.title{ font-size:40px; }
+  .hook{ margin:6px 0 30px; padding:24px 22px; border-radius:20px; background:var(--gold-tint); border:2px solid var(--gold); box-shadow:var(--shadow); }
+  .hook p{ font-size:19px; color:var(--ink); margin:0 0 14px; line-height:1.85; }
+  .hook p:last-child{ margin-bottom:0; }
+  .hook b{ color:var(--coral-deep); }
+  .hook .big{ font-family:'Noto Serif KR',serif; font-weight:800; font-size:23px; color:var(--coral-deep); line-height:1.55; }
+  .idcard{ border:2px solid var(--indigo); border-radius:16px; background:var(--indigo-tint); padding:6px 16px; margin:16px 0 6px; }
+  .idcard div{ display:flex; gap:12px; padding:11px 0; border-bottom:2px dashed rgba(46,125,128,.35); font-size:17px; line-height:1.6; }
+  .idcard div:last-child{ border-bottom:0; }
+  .idcard b{ flex:none; width:5.6em; color:var(--indigo-deep); }
+  .facts{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0 14px; }
+  .fact{ border-radius:14px; padding:16px 14px; text-align:center; background:var(--panel); border:2px solid var(--panel-line); box-shadow:var(--shadow); }
+  .fact .n{ display:block; font-family:'Noto Serif KR',serif; font-weight:900; font-size:34px; color:var(--coral); line-height:1.2; }
+  .fact .t{ display:block; font-size:15.5px; color:var(--ink-soft); line-height:1.55; margin-top:4px; }
+  .quote{ margin:12px 0; padding:12px 16px; border-left:5px solid var(--gold); background:var(--gold-tint); font-family:'Noto Serif KR',serif; font-size:17.5px; line-height:1.75; color:var(--ink); border-radius:0 10px 10px 0; }
+  .quote small{ display:block; margin-top:6px; font-family:'Noto Sans KR',sans-serif; font-size:14px; font-weight:700; color:var(--gold-deep); }
+  .ask{ margin:14px 0 0; padding:13px 16px; border-radius:12px; background:var(--indigo-tint); border:2px solid var(--indigo); font-weight:700; color:var(--indigo-deep); font-size:17.5px; line-height:1.65; }
+  details.deep{ margin:14px 0 0; border:2px dashed var(--coral); border-radius:14px; padding:12px 16px; background:var(--coral-tint); }
+  details.deep summary{ cursor:pointer; font-weight:800; color:var(--coral-deep); font-size:16.5px; }
+  details.deep p{ font-size:16.5px; color:var(--ink); margin:10px 0 0; line-height:1.75; }
+  details.ans{ margin:8px 0; border:2px solid var(--panel-line); border-radius:12px; background:var(--panel); padding:11px 14px; }
+  details.ans summary{ cursor:pointer; font-weight:700; color:var(--ink); font-size:17px; line-height:1.6; }
+  details.ans p{ margin:8px 0 0; padding-top:8px; border-top:2px dotted var(--panel-line); font-size:16.5px; color:var(--coral-deep); font-weight:700; line-height:1.65; }
+  .pairs{ margin:14px 0 6px; }
+  .pairs .row{ margin:0 0 8px; }
+  .backlink{ display:block; text-align:center; margin:30px 0 6px; padding:14px; border-radius:14px; background:var(--indigo); color:#FFF; font-weight:800; text-decoration:none; font-size:17px; }
+  .date-table td:nth-child(3){ font-size:15px; }
+  @media (max-width:420px){ .facts{ grid-template-columns:1fr 1fr; } .fact .n{ font-size:28px; } body.kids h1.title{ font-size:32px; } .idcard b{ width:4.8em; } }
+</style>
+</head>
+
+<body class="kids">
+<div class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">순천서남교회 말씀공동체 · 어린이·청소년</span>
+    <h1 class="title">고린도후서 탐험대</h1>
+    <p class="subtitle">편지 한 통 속에 모험과 눈물과 보물이 숨어 있어요.<br>같이 파헤쳐 볼래요?</p>
+    <p class="hero-verse">"우리는 이 보물을 질그릇에 간직하고 있습니다."<br>— 고린도후서 4:7</p>
+  </header>
+
+  <section class="hook">
+    <p>이 편지를 쓴 사람은 <b>매를 맞고, 감옥에 갇히고, 배가 세 번이나 부서져</b> 바다에 떠 있었던 사람이에요. 어느 도시에서는 <b>광주리를 타고 성벽 창문으로 도망쳐 나온</b> 적도 있어요.</p>
+    <p>그런데 이 편지는 이런 말로 시작해요. <b>"우리 주 예수 그리스도의 아버지이신 하나님을 찬양합시다."</b> (1:3, 새번역)</p>
+    <p class="big">도대체 왜 그랬을까요?<br>답을 찾으러 출발해요!</p>
+  </section>
+
+  <div class="part-tag">탐험 코스 · 고린도후서 속으로</div>
+
+  <div class="spine">
+
+    <div class="station">
+      <div class="station-num">1</div>
+      <h2>이 편지는 누가 누구에게 보냈을까요?</h2>
+      <div class="idcard">
+        <div><b>보낸 사람</b><span>바울 (친구 디모데도 함께 이름을 올렸어요)</span></div>
+        <div><b>받는 사람</b><span>고린도에 있는 하나님의 교회 사람들</span></div>
+        <div><b>쓴 곳</b><span>마게도냐</span></div>
+        <div><b>언제쯤</b><span>약 2천 년 전 (주후 55~57년경)</span></div>
+      </div>
+      <p>바울은 고린도에서 약 18개월 동안 머물면서 교회를 세웠어요(행 18장). 그리고 다른 곳으로 떠났다가, 이번에는 멀리서 이 편지를 보낸 거예요.</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">2</div>
+      <h2>고린도는 어떤 도시였을까요?</h2>
+      <p>고린도는 <b>항구가 두 개</b>나 있는 도시였어요. 서쪽에는 레카이움, 동쪽에는 겐그레아 항구가 있었지요. 그래서 돈과 사람과 소문이 쉴 새 없이 드나들었어요. 말을 잘하는 사람이 인기 있던 도시이기도 했어요.</p>
+      <p>이런 도시에서 "말도 서툴고 몸도 약해 보이는" 바울은 어떻게 대접받았을까요? 이 질문을 마음에 두고 다음 코스로 가요.</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">3</div>
+      <h2>편지가 오간 탐정 노트</h2>
+      <p>고린도후서를 읽다 보면 "어? 이 편지는 앞에 무슨 일이 있었던 거지?" 하는 생각이 들어요. 바울과 고린도 교회 사이에 편지와 방문이 여러 번 오갔기 때문이에요. 단서를 모아 순서를 맞춰 볼까요?</p>
+      <ol class="flow">
+        <li><b>앞선 편지</b> — 고린도전서 5:9에 나오지만 지금은 남아 있지 않아요.</li>
+        <li><b>고린도전서</b> — 바울이 에베소에서 보낸 편지예요.</li>
+        <li><b>마음 아픈 방문</b> — 바울이 직접 고린도에 다녀왔는데, 마음이 아픈 일이 있었어요(2:1; 13:2).</li>
+        <li><b>눈물의 편지</b> — 바울이 눈물을 흘리며 쓴 편지예요(2:3~4; 7:8).</li>
+        <li><b>디도를 기다림</b> — 바울은 불안한 마음으로 디도의 소식을 기다렸어요(2:12~13).</li>
+        <li><b>좋은 소식</b> — 디도가 와서 기쁜 소식을 전해 줬어요(7:5~7).</li>
+        <li><b>고린도후서</b> — 그 기쁨 속에서 이 편지를 썼어요!</li>
+      </ol>
+      <div class="quote">"나는 몹시 괴로워하며 걱정하는 마음으로, 많은 눈물을 흘리면서, 여러분에게 그 편지를 썼습니다. 그러나 그것은, 여러분을 마음 아프게 하려고 한 것이 아니라, 여러분을 내가 얼마나 극진히 사랑하고 있는지를 알려 주려고 한 것이었습니다."<small>고린도후서 2:4 (새번역)</small></div>
+      <p class="ask">눈물을 흘리며 편지를 쓸 만큼, 바울에게 고린도 교회는 어떤 존재였을까요?</p>
+      <details class="deep"><summary>🔍 중고등학생 더 깊이</summary><p>이 편지의 순서는 학자들이 편지 속 단서를 보고 짐작해서 그려 본 거예요. 그래서 학자마다 조금씩 다르게 그리기도 해요. 큰 줄기만 잡고 읽으면 충분해요.</p></details>
+    </div>
+
+    <div class="station">
+      <div class="station-num">4</div>
+      <h2>바울을 의심한 사람들</h2>
+      <p>고린도 교회 안에는 바울을 못 미덥게 보는 사람들이 있었어요. 바울이 직접 이렇게 전해요.</p>
+      <div class="quote">"바울의 편지는 무게가 있고, 힘이 있지만, 직접 대할 때에는, 그는 약하고, 말주변도 변변치 못하다" 하고 말하는 사람들이 있습니다.<small>고린도후서 10:10 (새번역)</small></div>
+      <p>한 주석은 이렇게 비유해요. 처음 만난 의사 선생님에게는 "면허증 좀 보여 주세요" 하고 말할 수 있어도, 오랜 친구에게는 그런 말을 하지 않잖아요. 바울은 친구라고 믿었던 교회 앞에서 "나는 진짜 사도예요" 하고 설명해야 하는 처지가 된 거예요.</p>
+      <p class="ask">나라면 이럴 때 어떻게 했을까요? 자랑거리를 잔뜩 늘어놓았을까요?</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">5</div>
+      <h2>바울의 모험 기록, 깜짝 놀랄 사실</h2>
+      <p>바울은 자랑거리를 늘어놓는 대신 이런 이야기를 꺼내요. (11:23~27)</p>
+      <div class="facts">
+        <div class="fact"><span class="n">39대×5번</span><span class="t">유대 사람들에게 '마흔에서 하나를 뺀 매'를 다섯 번 맞았어요. 다 합치면 195대!</span></div>
+        <div class="fact"><span class="n">3번</span><span class="t">채찍으로 맞은 횟수예요.</span></div>
+        <div class="fact"><span class="n">1번</span><span class="t">돌에 맞았어요.</span></div>
+        <div class="fact"><span class="n">3번</span><span class="t">타고 가던 배가 부서졌어요. 밤낮 꼬박 하루를 바다에 떠 있기도 했어요.</span></div>
+      </div>
+      <p>그리고 이런 탈출 이야기도 있어요.</p>
+      <div class="quote">다마스쿠스에서는 아레다 왕의 총리가 나를 잡으려고 다마스쿠스 성을 지키고 있었으나, 교우들이 나를 광주리에 담아 성벽의 창문으로 내려 주어서, 나는 그 손에서 벗어났습니다.<small>고린도후서 11:32~33 (새번역)</small></div>
+      <p class="ask">이런 일을 겪은 바울이 이어서 하는 말이 뭘까요? 바로 이거예요. "꼭 자랑을 해야 한다고 하면, 나는 내 약점들을 자랑하겠습니다."(11:30) 왜 그랬을까요?</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">6</div>
+      <h2>깨지기 쉬운 항아리 속 보물</h2>
+      <div class="quote">우리는 이 보물을 질그릇에 간직하고 있습니다. 이 엄청난 능력은 하나님에게서 나는 것이지, 우리에게서 나는 것이 아닙니다.<small>고린도후서 4:7 (새번역)</small></div>
+      <p><b>질그릇</b>은 흙으로 빚어 구운 평범한 그릇이에요. 금이나 보석 상자와는 달라서 쉽게 깨지지요. 귀한 보물을 이런 그릇에 담았다는 게 이상하지 않나요? 바울은 그 이유를 이렇게 말해요. 그 엄청난 힘이 <b>우리에게서 나온 게 아니라 하나님께 있다는 걸 알게 하려는 것</b>이라고요.</p>
+      <p>비밀 봉투 이야기도 있어요. 톰 라이트라는 학자가 소개한 이야기인데, 주미 영국 대사가 가장 중요한 비밀을 외교 행낭이 아니라 평범한 봉투에 담아 보냈대요. 봉투는 평범해도 안에 든 편지가 중요한 거예요. 질그릇이 평범한 봉투라면, 안에 든 보물은 뭘까요? 바로 예수님의 복음이에요.</p>
+      <p>이어지는 4:8~9에서 바울은 "~해도 ~하지 않는다"를 네 번 되풀이해요. 짝을 맞춰 볼까요?</p>
+      <div class="pairs">
+        <details class="ans"><summary>사방으로 죄어들어도 …</summary><p>움츠러들지 않으며</p></details>
+        <details class="ans"><summary>답답한 일을 당해도 …</summary><p>낙심하지 않으며</p></details>
+        <details class="ans"><summary>박해를 당해도 …</summary><p>버림받지 않으며</p></details>
+        <details class="ans"><summary>거꾸러뜨림을 당해도 …</summary><p>망하지 않습니다</p></details>
+      </div>
+      <p class="ask">나는 요즘 어떤 일 앞에서 '깨질 것 같은' 마음이 들었나요? 그래도 "~하지 않는다"를 붙일 수 있을까요?</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">7</div>
+      <h2>위로 릴레이</h2>
+      <div class="quote">우리 주 예수 그리스도의 아버지이신 하나님을 찬양합시다. 그는 자비로우신 아버지시요, 온갖 위로를 주시는 하나님이시요, 온갖 환난 가운데에서 우리를 위로하여 주시는 분이십니다. 따라서 우리가 하나님께 받는 그 위로로, 우리도 온갖 환난을 당하는 사람들을 위로할 수 있습니다.<small>고린도후서 1:3~4 (새번역)</small></div>
+      <p>하나님께 받은 위로가 <b>다른 사람에게로 이어져 가는 릴레이</b>예요. 위로를 받은 사람이 다음 사람의 위로가 되고요.</p>
+      <p>한 학자가 세어 보니 1장 3~7절 다섯 절 안에 '위로'라는 말이 열 번이나 나온대요. 번역본마다 조금씩 다를 수 있으니, 내 성경으로 직접 세어 봐요!</p>
+      <p class="ask">내가 힘들 때 위로가 되어 준 사람은 누구였나요? 오늘 내가 위로를 이어 줄 사람은 누구일까요?</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">8</div>
+      <h2>성경이 일부러 안 알려 준 미스터리</h2>
+      <p>성경을 읽다 보면 "그래서 그게 뭔데?" 하고 궁금한 곳이 있어요. 고린도후서에는 이런 미스터리가 있어요.</p>
+      <p><b>미스터리 ① 셋째 하늘</b></p>
+      <div class="quote">나는 그리스도를 믿는 사람 하나를 알고 있습니다. 그는 십사 년 전에 셋째 하늘에까지 이끌려 올라갔습니다. 그 때에 그가 몸 안에 있었는지 몸 밖에 있었는지, 나는 알지 못하지만, 하나님께서는 아십니다.<small>고린도후서 12:2 (새번역)</small></div>
+      <p>바울 자신도 "몸 안에 있었는지 몸 밖에 있었는지 모른다"고 말해요. 어떤 일이었는지는 더 알 수 없어요.</p>
+      <p><b>미스터리 ② 몸에 박힌 가시</b></p>
+      <div class="quote">그러므로 내가 교만하게 되지 못하도록, 하나님께서 내 몸에 가시를 주셨습니다. … 나는 이것을 내게서 떠나게 해 달라고, 주님께 세 번이나 간청하였습니다.<small>고린도후서 12:7~8 (새번역)</small></div>
+      <p>이 가시가 병인지, 반대하는 사람들인지, 유혹인지 <b>성경은 말해 주지 않아요.</b> 여러 의견이 있을 뿐이에요. 중요한 건 바울이 세 번이나 기도했고, 하나님이 대답해 주셨다는 거예요.</p>
+      <div class="quote">"내 은혜가 네게 족하다. 내 능력은 약한 데서 완전하게 된다."<small>고린도후서 12:9 (새번역)</small></div>
+      <p class="ask">하나님은 왜 가시를 빼 주시지 않고 이런 말씀을 하셨을까요? 나에게도 '빼 주세요' 하고 기도하는 가시가 있나요?</p>
+    </div>
+
+    <div class="station">
+      <div class="station-num">9</div>
+      <h2>소와 나귀를 한 멍에에 매면?</h2>
+      <div class="quote">믿지 않는 사람들과 멍에를 함께 메지 마십시오. 정의와 불의가 어떻게 짝하며, 빛과 어둠이 어떻게 사귈 수 있겠습니까?<small>고린도후서 6:14 (새번역)</small></div>
+      <p><b>멍에</b>는 소 두 마리의 어깨에 함께 얹어 밭을 갈게 하는 나무 막대예요. 그런데 힘이 센 소와 힘이 약한 나귀를 한 멍에에 매면 어떻게 될까요? 걸음이 달라서 밭이 고르게 갈리지 않아요(신 22:10). 바울은 이 그림으로 무엇을 말하고 싶었을까요?</p>
+      <details class="deep"><summary>🔍 중고등학생 더 깊이</summary><p>이 말씀은 '믿지 않는 사람을 만나지 말라'는 뜻일까요, '섞여서 거룩함을 잃지 말라'는 뜻일까요? 학자와 주석마다 해석이 갈려요. 그래서 11월 8일 새벽에 조심스럽게 읽어요.</p></details>
+    </div>
+
+    <div class="station">
+      <div class="station-num">10</div>
+      <h2>가난한데 넘치게 나눈 교회</h2>
+      <div class="quote">그들은 큰 환난의 시련을 겪으면서도 기쁨이 넘치고, 극심한 가난에 쪼들리면서도 넉넉한 마음으로 남에게 베풀었습니다. … 그들은 힘이 닿는 대로 구제하였을 뿐만 아니라, 오히려 힘에 지나도록 자원해서 하였습니다.<small>고린도후서 8:2~3 (새번역)</small></div>
+      <p>마게도냐 교회는 가난했는데도 힘에 지나도록 자원해서 나눴어요. 바울은 이 이야기를 하면서 이렇게 말해요.</p>
+      <div class="quote">하나님께서는 기쁜 마음으로 내는 사람을 사랑하십니다.<small>고린도후서 9:7 (새번역)</small></div>
+      <p class="ask">'마지못해 하는 일'과 '기쁜 마음으로 하는 일'은 겉으로 같아 보여도 뭐가 다를까요?</p>
+    </div>
+
+  </div>
+
+  <div class="key-verse" style="margin:0 0 40px;">
+    <blockquote>"내 은혜가 네게 족하다. 내 능력은 약한 데서 완전하게 된다."</blockquote>
+    <cite>고린도후서 12:9 (새번역)</cite>
+    <p class="key-question">내가 받은 위로와 은혜를, 오늘 누구에게 흘려보낼까요?</p>
+  </div>
+
+  <section class="range">
+    <div class="qtag">매일 탐험 지도 · 11월 1일~18일</div>
+    <h2>열여덟 번의 새벽 탐험</h2>
+    <p class="lead">11월 1일부터 18일까지 고린도후서를 차례로 읽어요. 읽기 전에 '오늘의 탐험 질문'을 먼저 생각하고, 읽은 뒤에 답을 찾아봐요.</p>
+    <table class="date-table">
+      <tr><th>날짜</th><th>본문</th><th>오늘의 탐험 질문</th></tr>
+      <tr><td>11/1</td><td>1:1~11</td><td>죽을 것 같았던 바울이 왜 가장 먼저 하나님을 찬양했을까?</td></tr>
+      <tr><td>11/2</td><td>1:12~22</td><td>하나님의 약속에 '예'라고 한다는 건 무슨 뜻일까?</td></tr>
+      <tr><td>11/3</td><td>1:23~2:17</td><td>바울은 왜 고린도에 가는 걸 미뤘을까? 그리스도의 '향기'는 뭘까?</td></tr>
+      <tr><td>11/4</td><td>3:1~18</td><td>돌판에 쓴 것과 마음에 쓰는 것은 뭐가 다를까?</td></tr>
+      <tr><td>11/5</td><td>4:1~18</td><td>질그릇 속 보물은 뭘까? 왜 하필 질그릇에 넣었을까?</td></tr>
+      <tr><td>11/6</td><td>5:1~10</td><td>'장막집'과 '영원한 집'은 무슨 뜻일까?</td></tr>
+      <tr><td>11/7</td><td>5:11~21</td><td>'새로운 피조물'이 되었다는 건 어떤 모습일까?</td></tr>
+      <tr><td>11/8</td><td>6:1~7:1</td><td>소와 나귀를 한 멍에에 매면 어떻게 될까?</td></tr>
+      <tr><td>11/9</td><td>7:2~16</td><td>'하나님의 뜻대로 하는 근심'은 어떤 슬픔일까? 디도가 가져온 소식은?</td></tr>
+      <tr><td>11/10</td><td>8:1~15</td><td>가난한 마게도냐 교회가 넘치게 나눈 이유는?</td></tr>
+      <tr><td>11/11</td><td>8:16~24</td><td>바울은 왜 헌금 맡는 일을 투명하게 하려고 했을까?</td></tr>
+      <tr><td>11/12</td><td>9:1~15</td><td>'즐겨 내는 사람'은 어떤 마음으로 낼까?</td></tr>
+      <tr><td>11/13</td><td>10:1~18</td><td>'육신이 아닌 능력'으로 싸운다는 건 무슨 뜻일까?</td></tr>
+      <tr><td>11/14</td><td>11:1~15</td><td>'다른 예수'를 전하는 사람은 어떻게 알아볼까?</td></tr>
+      <tr><td>11/15</td><td>11:16~33</td><td>바울의 모험 기록 중 가장 놀라운 건? 광주리 탈출도 나와요!</td></tr>
+      <tr><td>11/16</td><td>12:1~13</td><td>'몸의 가시'는 뭘까? 왜 빼 주시지 않았을까?</td></tr>
+      <tr><td>11/17</td><td>12:14~21</td><td>세 번째 방문을 앞둔 바울의 마음은 어땠을까?</td></tr>
+      <tr><td>11/18</td><td>13:1~13</td><td>마지막 인사 속에 숨은 세 가지 선물은 뭘까?</td></tr>
+    </table>
+    <div class="quote">주 예수 그리스도의 은혜와 하나님의 사랑과 성령의 사귐이 여러분 모두와 함께 하기를 빕니다.<small>고린도후서 13:13 (새번역) — 편지의 마지막 인사</small></div>
+  </section>
+
+  <section class="questions">
+    <div class="qtag">O X 퀴즈</div>
+    <h2>얼마나 탐험했나 확인해 봐요</h2>
+    <p class="lead">문제를 읽고 O인지 X인지 먼저 생각한 뒤, 눌러서 정답을 확인해요.</p>
+    <details class="ans"><summary>① 바울은 고린도에서 약 18개월 동안 머물며 교회를 세웠다.</summary><p>O! (행 18장)</p></details>
+    <details class="ans"><summary>② 바울은 자기가 받은 고난과 약한 모습을 꼭꼭 숨겼다.</summary><p>X! 오히려 "꼭 자랑을 해야 한다면 내 약점들을 자랑하겠다"고 말했어요 (11:30).</p></details>
+    <details class="ans"><summary>③ 바울은 배가 부서지는 사고를 세 번 겪었다.</summary><p>O! (11:25)</p></details>
+    <details class="ans"><summary>④ 성경은 바울의 '몸의 가시'가 무엇이었는지 정확히 알려 준다.</summary><p>X! 성경은 가시가 무엇인지 밝히지 않아요. 여러 의견이 있을 뿐이에요.</p></details>
+    <details class="ans"><summary>⑤ 바울은 다마스쿠스에서 광주리를 타고 성벽 창문으로 탈출했다.</summary><p>O! (11:32~33)</p></details>
+
+    <div class="also">
+      <p class="lead">다 읽은 뒤에 이 세 가지를 생각해 봐요</p>
+      <ol>
+        <li>오늘 본문에서 하나님은 어떤 분으로 나왔나요?</li>
+        <li>내가 받은 위로를 오늘 누구에게 흘려보낼 수 있을까요?</li>
+        <li>오늘 내가 해 볼 수 있는 작은 한 걸음은 뭘까요?</li>
+      </ol>
+    </div>
+  </section>
+
+  <a class="backlink" href="index.html">어른용 고린도후서 산책 보러 가기 →</a>
+
+  <footer>
+    <p class="sched">이 페이지의 성경 본문은 표준새번역입니다. 교회학교 중고등부 설교문도 표준새번역으로 매일 함께 나가요.</p>
+    <p class="signoff">받은 위로를 흘려보내는 길 위에서 함께 걷기를 구하며,
+      <span class="church"><img src="assets/PCK_Logo.png" alt="대한예수교장로회(통합) 교단 마크">순천서남교회 말씀공동체</span>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
